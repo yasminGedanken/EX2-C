@@ -82,7 +82,7 @@ void printAll()
 			for(j=1;j<2;j++){
 
 		if(superBank[i][0]==1.0){
-			printf("account number: %d, the amount in the account is: %lf\n",i+901, superBank[i][1]);
+			printf("account number: %d, the amount in the account is: %.2lf\n",i+901, superBank[i][1]);
 		} 	
 	}	
 }

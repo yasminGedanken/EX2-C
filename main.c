@@ -43,7 +43,7 @@ int main(){
 		scanf("%lf",&y);
 		z = addMoney(x, y);
 		if(z!=-1.0){
-			printf("the amount in your account is: %lf\n",z);
+			printf("the amount in your account is: %.2lf\n",z);
 		}
 		else{
 			printf("there is not an account with this number in our bank! you are a liar bitch!\n");
@@ -65,7 +65,7 @@ int main(){
 			printf("you are poor loser bitch, go get a job\n");
 		}
 	else{
-		printf("the amount left is: %lf pounds\n",z);
+		printf("the amount left is: %.2lf pounds\n",z);
 	}
 	break;
 	
@@ -96,4 +96,7 @@ int main(){
 	scanf(" %c", &operator);
 	}
 	closeAll();
-}
+	
+	
+	return 0;
+} 
