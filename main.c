@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "myBank.h"
-#define MOSTBIG 950
+#define MAX 950
 #define MIN 901
 
 
@@ -30,7 +30,7 @@ int main(){
 		
 		printf("what is your account number?\n");
 		scanf("%d", &x);
-			if(x<MIN||x>MOSTBIG)
+			if(x<MIN||x>MAX)
 			{
 				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
 			}	    else{
@@ -50,32 +50,41 @@ int main(){
 		
 		printf("what is your account number?\n");
 		scanf("%d",&x);
-			if(x<MIN||x>MOSTBIG)
+			if(x<MIN||x>MAX)
 			{
 				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
 			}	    else{
 		printf("how much money would you like to deposit?\n");
 		scanf("%lf",&y);
+		if(y>0){
 		z = addMoney(x, y);
 		if(z!=-1.0){
 			printf("the amount in your account is: %.2lf\n",z);
 		}
+		
 		else{
 			printf("there is not an account with this number in our bank! you are a liar bitch!\n");
 		}
+		}
+		else{
+			printf("you cant deposit a negative amount\n");
+			break;
 			}
+			}
+			
 		break;
 		
 		case 'W':
 		
 		printf("what is your account number?\n");
 		scanf("%d",&x);
-			if(x<MIN||x>MOSTBIG)
+			if(x<MIN||x>MAX)
 			{
 				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
 			}	    else{
 		printf("how much money would you like to withdrawal?\n");
 		scanf("%lf",&y);
+		if(y>0){
 		z = takeMoney(x,y);
 	if(z==-1.0){
 		printf("there is not an account with this number in our bank! you are a liar bitch!\n");
@@ -87,6 +96,11 @@ int main(){
 	else{
 		printf("the amount left is: %.2lf pounds\n",z);
 	}
+		}
+		else{
+			printf("you cant deposit a negative amount\n");
+			break;
+		}
 			}
 	break;
 	
@@ -94,7 +108,7 @@ int main(){
 	
 	printf("what is your account number?\n");
 	scanf("%d",&x);
-			if(x<MIN||x>MOSTBIG)
+			if(x<MIN||x>MAX)
 			{
 				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
 			}	    else{
