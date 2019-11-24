@@ -53,7 +53,7 @@ double takeMoney(int accNumber, double amount ){
 	return -1.0;
 }
 
-double tooPoorForOurBankBitch(int accNumber)
+double tooPoorForOurBank(int accNumber)
 {
 	if(superBank[accNumber-901][0]==1.0)
 	{
@@ -65,7 +65,7 @@ double tooPoorForOurBankBitch(int accNumber)
 		return -1.0;
 }
 
-void freeMoneyBitch(double interest_rate)
+void freeMoney(double interest_rate)
 {
 	int i;
 	for(i=901; i<951;i++){
@@ -97,16 +97,3 @@ void printAll()
 			}
 		}
 	}
-				
-			
-
-
-
-
-
-
-
-
-
-
-
