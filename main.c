@@ -8,7 +8,7 @@ int main(){
 	char operator;
 	double y,z;
 	int x;
-	printf("enter a char bitch:\n O-open new accaunt\n B-how much money do you have in your account\n D-deppozet\n W-cash withrawal\n C-close account\n I-add interes\n P-print all the open account\n E-close the bank\n ");
+	printf("enter a char :\n O-open new accaunt\n B-how much money do you have in your account\n D-deppozet\n W-cash withrawal\n C-close account\n I-add interes\n P-print all the open account\n E-close the bank\n ");
 	scanf(" %c", &operator);
 	
 
@@ -19,7 +19,7 @@ int main(){
 	{
 		case 'O':
 		
-		printf("how much money would you like to deposit in your account today , your majesty?\n");
+		printf("how much money would you like to deposit in your account?\n");
 		scanf("%d", &x);
 		x = openAccount(x);
 		printf("your account number is : %d\n", x);
@@ -32,7 +32,7 @@ int main(){
 		scanf("%d", &x);
 			if(x<MIN||x>MAX)
 			{
-				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
+				printf("there is not an account with this number.\n");
 			}	    else{
 		y = checkMoney(x);
 		if(y!=-1.0){
@@ -40,7 +40,7 @@ int main(){
 		}
 						   else
 						   {
-							   printf("first you need to open an account bro");
+							   printf("first you need to open an account.");
 						   }
 					   }
 					   
@@ -52,7 +52,7 @@ int main(){
 		scanf("%d",&x);
 			if(x<MIN||x>MAX)
 			{
-				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
+				printf("there is not an account with this number.\n");
 			}	    else{
 		printf("how much money would you like to deposit?\n");
 		scanf("%lf",&y);
@@ -63,7 +63,7 @@ int main(){
 		}
 		
 		else{
-			printf("there is not an account with this number in our bank! you are a liar bitch!\n");
+			printf("there is not an account with this number.\n");
 		}
 		}
 		else{
@@ -80,18 +80,18 @@ int main(){
 		scanf("%d",&x);
 			if(x<MIN||x>MAX)
 			{
-				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
+				printf("there is not an account with this number.\n");
 			}	    else{
 		printf("how much money would you like to withdrawal?\n");
 		scanf("%lf",&y);
 		if(y>0){
 		z = takeMoney(x,y);
 	if(z==-1.0){
-		printf("there is not an account with this number in our bank! you are a liar bitch!\n");
+		printf("there is not an account with this number.\n");
 	}
 	else 
 		if(z==-2.0){
-			printf("you are poor loser bitch, go get a job\n");
+			printf("there is not enough money in the account.\n");
 		}
 	else{
 		printf("the amount left is: %.2lf pounds\n",z);
@@ -110,9 +110,9 @@ int main(){
 	scanf("%d",&x);
 			if(x<MIN||x>MAX)
 			{
-				printf("there is not an account with this number in our bank! you are a liar bitch!\n");
+				printf("there is not an account with this number.\n");
 			}	    else{
-	y = tooPoorForOurBankBitch(x);
+	y = tooPoorForOurBank(x);
 	if (y==-1.0){
 		printf("the account you want to close is already closed\n");
 			   }
@@ -123,7 +123,7 @@ int main(){
 			  
 			   printf("what is your interest rate?\n");
 			   scanf("%lf", &y);
-			   freeMoneyBitch(y);
+			   freeMoney(y);
 			   break;
 			   
 		case 'P':
@@ -132,7 +132,7 @@ int main(){
 			   	   
 			   
 	}
-		printf("enter a char bitch \n");
+		printf("enter a char  \n");
 	scanf(" %c", &operator);
 	}
 	closeAll();
