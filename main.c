@@ -2,6 +2,7 @@
 #include "myBank.h"
 #define MAX 950
 #define MIN 901
+#define HIGHACC 50
 
 
 int main(){
