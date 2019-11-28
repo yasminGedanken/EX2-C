@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include "myBank.h"
+#define MAX 950
+#define MIN 901
+#define HIGHACC 50
 
 
-double superBank [50][2] = {{0}}; 
+double superBank [HIGHACC][2] = {{0}}; 
 
 int openAccount(double firstDep)
 {
 int i ;
-for (i=0;i<50;i++){
+for (i=0;i<HIGHACC;i++){
 if (superBank[i][0]!=1.0)
 {
 superBank[i][0]=1.0;
 superBank[i][1]=firstDep;
-return i+901;
+return i+MIN;
 }
 }
 return 0;
@@ -22,26 +25,26 @@ return 0;
 double checkMoney(int accNumber)
 {
 	
-	if(superBank[accNumber-901][0]==1){
+	if(superBank[accNumber-MIN][0]==1){
 	
-	return superBank[accNumber-901][1];
+	return superBank[accNumber-MIN][1];
 	}
 		else return -1.0;
 }
 
 double addMoney(int accNumber, double amount)
 {
-	if(superBank[accNumber-901][0]==1.0){
+	if(superBank[accNumber-MIN][0]==1.0){
 	double i;
-	superBank[accNumber-901][1]+=amount;
-	i=superBank[accNumber-901][1];
+	superBank[accNumber-MIN][1]+=amount;
+	i=superBank[accNumber-MIN][1];
 	return i;
 	}
 	return -1.0;
 }
 double takeMoney(int accNumber, double amount ){
-	double i = superBank[accNumber-901][1];
-	if (superBank[accNumber-901][0]==1.0){
+	double i = superBank[accNumber-MIN][1];
+	if (superBank[accNumber-MIN][0]==1.0){
 		if(i>amount){
 			i-=amount;
 		return i;
@@ -55,9 +58,9 @@ double takeMoney(int accNumber, double amount ){
 
 double tooPoorForOurBank(int accNumber)
 {
-	if(superBank[accNumber-901][0]==1.0)
+	if(superBank[accNumber-MIN][0]==1.0)
 	{
-		superBank[accNumber-901][0]=0;
+		superBank[accNumber-MIN][0]=0;
 		return 0;
 	
 	}
@@ -68,9 +71,9 @@ double tooPoorForOurBank(int accNumber)
 void freeMoney(double interest_rate)
 {
 	int i;
-	for(i=901; i<951;i++){
-		if(superBank[i-901][0] == 1.0){
-			superBank[i-901][1]+=((superBank[i-901][1]*interest_rate)/100);
+	for(i=MIN; i<951;i++){
+		if(superBank[i-MIN][0] == 1.0){
+			superBank[i-MIN][1]+=((superBank[i-MIN][1]*interest_rate)/100);
 		}	
 }
 }
@@ -78,11 +81,11 @@ void freeMoney(double interest_rate)
 void printAll()
 {
 	int i,j;
-		for (i=0; i<50; i++){
+		for (i=0; i<HIGHACC; i++){
 			for(j=1;j<2;j++){
 
 		if(superBank[i][0]==1.0){
-			printf("account number: %d, the amount in the account is: %.2lf\n",i+901, superBank[i][1]);
+			printf("account number: %d, the amount in the account is: %.2lf\n",i+MIN, superBank[i][1]);
 		} 	
 	}	
 }
@@ -91,7 +94,7 @@ void printAll()
 	void closeAll()
 	{
 		int i,j;
-		for (i=0; i<50; i++){
+		for (i=0; i<HIGHACC; i++){
 			for(j=0;j<2;j++){
 				superBank[i][j] = 0;
 			}
